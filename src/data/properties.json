@@ -1,0 +1,118 @@
+{
+  "properties": [
+    {
+      "id": "prop1",
+      "type": "House",
+      "price": 750000,
+      "bedrooms": 3,
+      "postcode": "BR5",
+      "added": "2022-10-12",
+      "images": [
+        "/images/prop1/1.jpg",
+        "/images/prop1/2.jpg",
+        "/images/prop1/3.jpg",
+        "/images/prop1/4.jpg",
+        "/images/prop1/5.jpg",
+        "/images/prop1/6.jpg"
+      ],
+      "description": "Three bedroom family house in Petts Wood",
+      "floorPlan": "/images/prop1/floorplan.jpg",
+      "mapUrl": "https://www.google.com/maps?q=BR5&output=embed"
+    },
+    {
+      "id": "prop2",
+      "type": "Apartment",
+      "price": 450000,
+      "bedrooms": 2,
+      "postcode": "BR4",
+      "added": "2023-01-05",
+      "images": [
+        "/images/prop2/1.jpg",
+        "/images/prop2/2.jpg",
+        "/images/prop2/3.jpg"
+      ],
+      "description": "Modern two-bedroom apartment near Bromley",
+      "floorPlan": "/images/prop2/floorplan.jpg",
+      "mapUrl": "https://www.google.com/maps?q=BR4&output=embed"
+    },
+    {
+      "id": "prop3",
+      "type": "Bungalow",
+      "price": 650000,
+      "bedrooms": 3,
+      "postcode": "BR3",
+      "added": "2023-03-15",
+      "images": [
+        "/images/prop3/1.jpg",
+        "/images/prop3/2.jpg"
+      ],
+      "description": "Spacious bungalow with garden in Beckenham",
+      "floorPlan": "/images/prop3/floorplan.jpg",
+      "mapUrl": "https://www.google.com/maps?q=BR3&output=embed"
+    },
+    {
+      "id": "prop4",
+      "type": "House",
+      "price": 820000,
+      "bedrooms": 4,
+      "postcode": "BR2",
+      "added": "2023-05-20",
+      "images": [
+        "/images/prop4/1.jpg",
+        "/images/prop4/2.jpg",
+        "/images/prop4/3.jpg"
+      ],
+      "description": "Four-bedroom family house with garage in Orpington",
+      "floorPlan": "/images/prop4/floorplan.jpg",
+      "mapUrl": "https://www.google.com/maps?q=BR2&output=embed"
+    },
+    {
+      "id": "prop5",
+      "type": "Apartment",
+      "price": 380000,
+      "bedrooms": 1,
+      "postcode": "BR1",
+      "added": "2023-07-10",
+      "images": [
+        "/images/prop5/1.jpg",
+        "/images/prop5/2.jpg"
+      ],
+      "description": "Cozy one-bedroom apartment in Bromley town center",
+      "floorPlan": "/images/prop5/floorplan.jpg",
+      "mapUrl": "https://www.google.com/maps?q=BR1&output=embed"
+    },
+    {
+      "id": "prop6",
+      "type": "House",
+      "price": 900000,
+      "bedrooms": 5,
+      "postcode": "BR6",
+      "added": "2023-08-01",
+      "images": [
+        "/images/prop6/1.jpg",
+        "/images/prop6/2.jpg",
+        "/images/prop6/3.jpg"
+      ],
+      "description": "Luxury five-bedroom house with pool in Keston",
+      "floorPlan": "/images/prop6/floorplan.jpg",
+      "mapUrl": "https://www.google.com/maps?q=BR6&output=embed"
+    },
+    {
+      "id": "prop7",
+      "type": "Bungalow",
+      "price": 550000,
+      "bedrooms": 2,
+      "postcode": "BR7",
+      "added": "2023-09-12",
+      "images": [
+        "/images/prop7/1.jpg",
+        "/images/prop7/2.jpg"
+      ],
+      "description": "Two-bedroom bungalow with modern kitchen in Swanley",
+      "floorPlan": "/images/prop7/floorplan.jpg",
+      "mapUrl": "https://www.google.com/maps?q=BR7&output=embed"
+    }
+  ]
+}
+
+
