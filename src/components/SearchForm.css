@@ -1,0 +1,94 @@
+/* General form styling */
+.search-form {
+  max-width: 500px;       /* smaller width */
+  margin: 20px auto;      /* reduced margin */
+  padding: 20px;          /* compact padding */
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Form title */
+.search-form-title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #1a237e;
+  margin-bottom: 15px;  /* reduced spacing */
+}
+
+/* TextField styling */
+.search-form .MuiTextField-root {
+  margin-bottom: 12px;
+}
+
+.search-form .MuiInputLabel-root {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.search-form .MuiInputBase-input {
+  padding: 8px 10px;    /* smaller padding */
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-form .MuiInputBase-input:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 4px rgba(25, 118, 210, 0.25);
+  outline: none;
+}
+
+/* Slider styling */
+.search-form .MuiSlider-root {
+  color: #1976d2;
+  margin-bottom: 12px;
+}
+
+/* Date picker */
+.date-picker-container {
+  margin-bottom: 12px;
+}
+
+.date-picker-container input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+.date-picker-container input:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 4px rgba(25, 118, 210, 0.25);
+  outline: none;
+}
+
+/* Search button */
+.search-button {
+  background-color: #1976d2;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 10px 0;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  margin-top: 5px; /* smaller spacing */
+}
+
+.search-button:hover {
+  background-color: #0d47a1;
+  transform: scale(1.02);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive tweaks */
+@media (max-width: 500px) {
+  .search-form {
+    padding: 15px;
+    margin: 15px;
+  }
+}
