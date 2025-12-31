@@ -83,7 +83,7 @@
 
 .property-card {
   background-color: #f9f9f9;
-  border-radius: 12px;
+  border-radius: 13px;
   overflow: hidden;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -101,7 +101,7 @@
 }
 
 .property-card-content {
-  padding: 15px;
+  padding: 14px;
 }
 
 .property-card-content h3 {
