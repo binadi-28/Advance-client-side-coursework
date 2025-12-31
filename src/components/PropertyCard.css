@@ -1,0 +1,95 @@
+/* General card styling */
+.property-card {
+  max-width: 320px;
+  margin: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: grab;
+  background-color: #fff;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+/* Card image */
+.property-card img {
+  object-fit: cover;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  transition: transform 0.3s ease;
+}
+
+.property-card img:hover {
+  transform: scale(1.05);
+}
+
+/* Card content */
+.property-card-content {
+  padding: 16px;
+}
+
+.property-card-title {
+  font-weight: 700;
+  color: #1a237e; /* deep blue */
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+
+.property-card-subtitle {
+  font-weight: 500;
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+/* Buttons container */
+.property-card-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Buttons styling */
+.property-card-button {
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: none;
+  transition: all 0.3s ease;
+}
+
+/* Favourite button */
+.property-card-button:first-child {
+  background-color: #f44336; /* red */
+  color: #fff;
+}
+
+.property-card-button:first-child:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* View button */
+.property-card-button:last-child {
+  border-color: #1976d2;
+  color: #1976d2;
+}
+
+.property-card-button:last-child:hover {
+  background-color: #1976d2;
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .property-card {
+    max-width: 100%;
+    margin: 15px 0;
+  }
+}

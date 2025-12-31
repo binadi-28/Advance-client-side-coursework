@@ -1,0 +1,24 @@
+.image-gallery {
+  width: 100%;
+}
+
+.main-image {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 8px; /* same as MUI gap: 1 → 8px */
+}
+
+.thumbnail-img {
+  width: 80px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  transition: border 0.2s;
+}
+
+.thumbnail-img.active {
+  border: 2px solid blue;
+}
