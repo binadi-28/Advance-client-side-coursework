@@ -1,0 +1,10 @@
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* exactly 3 columns */
+  gap: 16px; /* spacing between cards */
+  margin-top: 16px;
+}
+
+.property-card-wrapper {
+  width: 100%;
+}
