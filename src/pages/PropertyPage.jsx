@@ -1,13 +1,19 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import propertiesData from "../data/properties.json";
-import { Typography, Card, CardMedia, Button } from "@mui/material";
+import TabsSection from "../components/TabsSection";
 import "./PropertyPage.css";
 
 function PropertyPage() {
   const { id } = useParams();
 
-  // Find the property by ID
-  const property = propertiesData.properties.find((p) => p.id === id);
+  const property = propertiesData.properties.find(
+    (p) => p.id === id
+  );
+
+  const [mainImage, setMainImage] = useState(
+    property?.images?.[0] || ""
+  );
 
   if (!property) {
     return <h2>Property not found</h2>;
@@ -15,59 +21,60 @@ function PropertyPage() {
 
   return (
     <div className="property-page">
-      <Typography variant="h4" className="property-title">
-        {property.type} - £{property.price.toLocaleString()}
-      </Typography>
+      {/* TOP SECTION */}
+      <div className="property-top-section">
+        {/* LEFT: IMAGES */}
+        <div className="property-left">
+          <div className="property-images">
+            <div className="main-image-box">
+              <img
+                src={mainImage}
+                alt="Main Property"
+                className="main-image"
+              />
+            </div>
 
-      <Typography variant="subtitle1" className="property-subtitle">
-        {property.bedrooms} bedrooms · {property.postcode}
-      </Typography>
+            <div className="thumbnail-images">
+              {property.images.map((img, index) => (
+                <img
+                  key={index}
+                  src={img}
+                  alt={`Thumbnail ${index + 1}`}
+                  className={`thumbnail-img ${
+                    mainImage === img ? "active" : ""
+                  }`}
+                  onClick={() => setMainImage(img)}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
 
-      {/* Images */}
-      <div className="property-images">
-        {property.images.map((img, index) => (
-          <Card key={index} className="property-image-card">
-            <CardMedia
-              component="img"
-              height="140"
-              image={img}
-              alt={`${property.type} ${index + 1}`}
-            />
-          </Card>
-        ))}
+        {/* RIGHT: DETAILS + TABS */}
+        <div className="property-right">
+          <h2 className="property-type">{property.type}</h2>
+          <h3 className="property-price">
+            £{property.price.toLocaleString()}
+          </h3>
+
+          <div className="property-meta">
+            <span>🛏 {property.bedrooms} Bedrooms</span>
+            <span>📍 {property.postcode}</span>
+            <span>📅 {property.added}</span>
+          </div>
+
+          {/* TABS SECTION (CRITICAL FOR MARKS) */}
+          <TabsSection
+            description={property.description}
+            floorPlan={property.floorPlan}
+            mapUrl={property.mapUrl}
+          />
+
+          <button className="contact-button">
+            Contact Agent
+          </button>
+        </div>
       </div>
-
-      {/* Description */}
-      <Typography variant="body1" gutterBottom>
-        {property.description}
-      </Typography>
-
-      {/* Floor Plan */}
-      {property.floorPlan && (
-        <div className="property-floorplan">
-          <Typography variant="h6">Floor Plan</Typography>
-          <Card className="floorplan-card">
-            <CardMedia component="img" image={property.floorPlan} alt="Floor Plan" />
-          </Card>
-        </div>
-      )}
-
-      {/* Map */}
-      {property.mapUrl && (
-        <div className="property-map">
-          <Typography variant="h6">Location</Typography>
-          <iframe
-            src={property.mapUrl}
-            allowFullScreen=""
-            loading="lazy"
-            title="Property Map"
-          ></iframe>
-        </div>
-      )}
-
-      <Button variant="contained" className="contact-button">
-        Contact Agent
-      </Button>
     </div>
   );
 }
