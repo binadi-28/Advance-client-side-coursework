@@ -1,95 +1,150 @@
-/* General card styling */
+/* ===============================
+   PROPERTY GRID (IMPORTANT)
+================================ */
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  padding: 32px;
+  justify-items: center;
+}
+
+/* ===============================
+   PROPERTY CARD
+================================ */
+
 .property-card {
-  max-width: 320px;
-  margin: 20px;
-  border-radius: 12px;
+  width: 100%;
+  max-width: 340px;
+  background: #ffffff;
+  border-radius: 16px !important;
   overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
   cursor: grab;
-  background-color: #fff;
 }
 
 .property-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
 }
 
-/* Card image */
+/* ===============================
+   IMAGE (CLEAR & SHARP)
+================================ */
+
+/* MUI CardMedia renders an <img> */
 .property-card img {
-  object-fit: cover;
   width: 100%;
-  border-bottom: 1px solid #eee;
-  transition: transform 0.3s ease;
+  height: 220px;
+  object-fit: cover;
+  image-rendering: auto;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.4s ease;
 }
 
-.property-card img:hover {
-  transform: scale(1.05);
+.property-card:hover img {
+  transform: scale(1.06);
 }
 
-/* Card content */
+/* ===============================
+   CARD CONTENT
+================================ */
+
 .property-card-content {
-  padding: 16px;
+  padding: 16px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .property-card-title {
-  font-weight: 700;
-  color: #1a237e; /* deep blue */
-  margin-bottom: 8px;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
+  font-weight: 700 !important;
+  color: #1a237e;
 }
 
 .property-card-subtitle {
-  font-weight: 500;
-  color: #555;
   font-size: 0.95rem;
-  margin-bottom: 12px;
+  color: #555;
 }
 
-/* Buttons container */
+/* ===============================
+   BUTTONS
+================================ */
+
 .property-card-buttons {
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  gap: 12px;
+  margin-top: 14px;
 }
 
-/* Buttons styling */
 .property-card-button {
-  border-radius: 8px;
-  font-weight: 600;
-  text-transform: none;
-  transition: all 0.3s ease;
+  flex: 1;
+  padding: 8px 12px !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  transition: all 0.3s ease !important;
 }
 
 /* Favourite button */
-.property-card-button:first-child {
-  background-color: #f44336; /* red */
-  color: #fff;
+.property-card-button.MuiButton-contained {
+  background-color: #f44336 !important;
+  color: #ffffff !important;
 }
 
-.property-card-button:first-child:hover {
-  background-color: #d32f2f;
-  transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+.property-card-button.MuiButton-contained:hover {
+  background-color: #d32f2f !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
 /* View button */
-.property-card-button:last-child {
-  border-color: #1976d2;
-  color: #1976d2;
+.property-card-button.MuiButton-outlined {
+  border: 2px solid #1976d2 !important;
+  color: #1976d2 !important;
 }
 
-.property-card-button:last-child:hover {
-  background-color: #1976d2;
-  color: #fff;
-  transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+.property-card-button.MuiButton-outlined:hover {
+  background-color: #1976d2 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .property-card {
-    max-width: 100%;
-    margin: 15px 0;
+/* ===============================
+   RESPONSIVE BREAKPOINTS
+================================ */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .property-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .property-grid {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .property-card img {
+    height: 190px;
+  }
+
+  .property-card-title {
+    font-size: 1.15rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .property-card img {
+    height: 170px;
   }
 }
