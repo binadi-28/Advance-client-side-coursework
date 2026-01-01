@@ -8,7 +8,7 @@
       "postcode": "BR5",
       "added": "2022-10-12",
       "images": [
-       "/images/house1/house1.png",
+        "/images/house1/house1.png",
         "/images/house1/h1indoor1.png",
         "/images/house1/h1indoor2.png",
         "/images/house1/h1indoor3.png",
@@ -16,8 +16,8 @@
         "/images/house1/h1indoor5.png",
         "/images/house1/h1indoor6.png"
       ],
-      "description": "Three bedroom family house in Petts Wood",
-      "floorPlan": "/images/prop1/floorplan.jpg",
+      "description": "A spacious three-bedroom family house in Petts Wood featuring bright living areas, modern kitchen, private garden, and high-quality finishes. Perfect for families, offering excellent schools, local shops, and convenient transport links. This property combines comfort, style, and practicality, making it an ideal home for long-term living in a friendly neighborhood.",
+      "floorPlan": "/images/house1/floorplan1.png",
       "mapUrl": "https://www.google.com/maps?q=BR5&output=embed"
     },
     {
@@ -31,13 +31,13 @@
         "/images/house2/house2.png",
         "/images/house2/h2indoor1.png",
         "/images/house2/h2indoor2.png",
-        "/images/house2/h2indoor3.png", 
+        "/images/house2/h2indoor3.png",
         "/images/house2/h2indoor4.png",
         "/images/house2/h2indoor5.png",
-        "/images/house2/h2indoor6.png" 
+        "/images/house2/h2indoor6.png"
       ],
-      "description": "Modern two-bedroom apartment near Bromley",
-      "floorPlan": "/images/prop2/floorplan.jpg",
+      "description": "A stylish two-bedroom apartment near Bromley with open-plan living space, contemporary design, and high-quality finishes. Featuring spacious bedrooms, modern kitchen, and plenty of natural light. Close to shops, schools, and public transport. Perfect for professionals or small families seeking a vibrant, convenient lifestyle in a safe, well-connected area.",
+      "floorPlan": "/images/house2/floorplan2.png",
       "mapUrl": "https://www.google.com/maps?q=BR4&output=embed"
     },
     {
@@ -49,15 +49,15 @@
       "added": "2023-03-15",
       "images": [
         "/images/house3/house3.png",
-        "/images/house3/h3indoor6.png",
+        "/images/house3/h3indoor1.png",
         "/images/house3/h3indoor2.png",
-        "/images/house3/h3indoor3.png", 
+        "/images/house3/h3indoor3.png",
         "/images/house3/h3indoor4.png",
         "/images/house3/h3indoor5.png",
         "/images/house3/h3indoor6.png"
       ],
-      "description": "Spacious bungalow with garden in Beckenham",
-      "floorPlan": "/images/prop3/floorplan.jpg",
+      "description": "A charming one-bedroom bungalow in Beckenham offering single-level living with spacious interiors, modern kitchen, and a private garden. Ideal for couples or retirees seeking comfort and tranquility. Located in a peaceful neighborhood with easy access to amenities, parks, and transport, providing a perfect combination of privacy, convenience, and modern living.",
+      "floorPlan": "/images/house3/floorplan3.png",
       "mapUrl": "https://www.google.com/maps?q=BR3&output=embed"
     },
     {
@@ -76,8 +76,8 @@
         "/images/house4/h4indoor5.png",
         "/images/house4/h4indoor6.png"
       ],
-      "description": "Four-bedroom family house with garage in Orpington",
-      "floorPlan": "/images/prop4/floorplan.jpg",
+      "description": "A beautiful four-bedroom house in Orpington featuring spacious living areas, modern kitchen, garage, and landscaped garden. Perfect for families looking for comfort and functionality. Close to excellent schools, shopping centers, and transport links. This property offers a blend of style, convenience, and quality, providing an ideal home for everyday living and entertaining guests.",
+      "floorPlan": "/images/house4/floorplan4.png",
       "mapUrl": "https://www.google.com/maps?q=BR2&output=embed"
     },
     {
@@ -96,8 +96,8 @@
         "/images/house5/h5.indoor5.png",
         "/images/house5/h5.indoor6.png"
       ],
-      "description": "Cozy one-bedroom apartment in Bromley town center",
-      "floorPlan": "/images/prop5/floorplan.jpg",
+      "description": "A cozy one-bedroom apartment in Bromley town center, offering modern interiors, bright living space, and efficient layout. Perfect for professionals or first-time buyers. Conveniently located near shops, restaurants, and public transport. This property combines comfort and practicality with a central location, making it an ideal choice for easy urban living.",
+      "floorPlan": "/images/house5/floorplan5.png",
       "mapUrl": "https://www.google.com/maps?q=BR1&output=embed"
     },
     {
@@ -116,8 +116,8 @@
         "/images/house6/h6indoor5.png",
         "/images/house6/h6indoor6.png"
       ],
-      "description": "Luxury five-bedroom house with pool in Keston",
-      "floorPlan": "/images/prop6/floorplan.jpg",
+      "description": "A luxurious three-bedroom house in Keston featuring elegant interiors, a private swimming pool, modern kitchen, spacious bedrooms, and outdoor living areas. Perfect for families seeking comfort and style. Located in a prestigious, peaceful neighborhood with excellent transport links and local amenities. This property offers exceptional quality, privacy, and long-term value.",
+      "floorPlan": "/images/house6/floorplan6.png",
       "mapUrl": "https://www.google.com/maps?q=BR6&output=embed"
     },
     {
@@ -136,11 +136,9 @@
         "/images/house7/h7indoor5.png",
         "/images/house7/h7indoor6.png"
       ],
-      "description": "Two-bedroom bungalow with modern kitchen in Swanley",
-      "floorPlan": "/images/prop7/floorplan.jpg",
+      "description": "A modern two-bedroom bungalow in Swanley featuring stylish interiors, spacious living areas, and a private garden. Ideal for families or retirees seeking comfort and convenience. Close to local shops, schools, and transport links. This property offers a perfect blend of practicality, style, and peaceful residential living for long-term enjoyment.",
+      "floorPlan": "/images/house7/floorplan.png",
       "mapUrl": "https://www.google.com/maps?q=BR7&output=embed"
     }
   ]
 }
-
-

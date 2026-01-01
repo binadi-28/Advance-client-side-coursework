@@ -1,15 +1,21 @@
+import { Box } from "@mui/material";
 import PropertyCard from "./PropertyCard";
 import "./PropertyList.css";
 
 function PropertyList({ properties }) {
   return (
-    <div className="property-grid">
+    <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: "repeat(3, 1fr)", // 3 cards per row
+        gap: 3,
+        mt: 2,
+      }}
+    >
       {properties.map((property) => (
-        <div key={property.id} className="property-card-wrapper">
-          <PropertyCard property={property} />
-        </div>
+        <PropertyCard key={property.id} property={property} />
       ))}
-    </div>
+    </Box>
   );
 }
 
