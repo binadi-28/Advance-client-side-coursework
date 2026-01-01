@@ -4,7 +4,6 @@ import {
   TextField,
   MenuItem,
   Button,
-  Slider,
   Typography,
 } from "@mui/material";
 import DatePicker from "react-datepicker";
@@ -13,7 +12,8 @@ import "./SearchForm.css";
 
 function SearchForm({ onSearch }) {
   const [type, setType] = useState("");
-  const [price, setPrice] = useState([0, 1000000]);
+  const [priceMin, setPriceMin] = useState("");
+  const [priceMax, setPriceMax] = useState("");
   const [bedroomsMin, setBedroomsMin] = useState("");
   const [bedroomsMax, setBedroomsMax] = useState("");
   const [dateAddedFrom, setDateAddedFrom] = useState(null);
@@ -22,9 +22,12 @@ function SearchForm({ onSearch }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Send all search criteria to parent
     onSearch({
       type,
-      price,
+      priceMin,
+      priceMax,
       bedroomsMin,
       bedroomsMax,
       dateAddedFrom,
@@ -35,7 +38,7 @@ function SearchForm({ onSearch }) {
 
   return (
     <Box component="form" onSubmit={handleSubmit} className="search-form">
-      <Typography variant="h6" className="search-form-title">
+      <Typography className="search-form-title">
         Search Properties
       </Typography>
 
@@ -53,88 +56,79 @@ function SearchForm({ onSearch }) {
         <MenuItem value="Flat">Flat</MenuItem>
       </TextField>
 
-      {/* Price Range */}
-      <Typography gutterBottom>Price Range (£)</Typography>
-      <Slider
-        value={price}
-        onChange={(e, newValue) => setPrice(newValue)}
-        valueLabelDisplay="auto"
-        min={0}
-        max={1000000}
-        step={50000}
-      />
-
-      {/* Bedrooms Min/Max */}
-      <Box display="flex" gap={1} mb={2}>
+      {/* Price Min / Max */}
+      <Box className="two-inputs">
         <TextField
-          select
-          label="Min Bedrooms"
+          label="Min Price (£)"
+          type="number"
+          value={priceMin}
+          onChange={(e) => setPriceMin(e.target.value)}
           fullWidth
-          margin="dense"
-          value={bedroomsMin}
-          onChange={(e) => setBedroomsMin(e.target.value)}
-        >
-          <MenuItem value="">Any</MenuItem>
-          <MenuItem value="1">1+</MenuItem>
-          <MenuItem value="2">2+</MenuItem>
-          <MenuItem value="3">3+</MenuItem>
-          <MenuItem value="4">4+</MenuItem>
-        </TextField>
+        />
         <TextField
-          select
-          label="Max Bedrooms"
+          label="Max Price (£)"
+          type="number"
+          value={priceMax}
+          onChange={(e) => setPriceMax(e.target.value)}
           fullWidth
-          margin="dense"
-          value={bedroomsMax}
-          onChange={(e) => setBedroomsMax(e.target.value)}
-        >
-          <MenuItem value="">Any</MenuItem>
-          <MenuItem value="1">1</MenuItem>
-          <MenuItem value="2">2</MenuItem>
-          <MenuItem value="3">3</MenuItem>
-          <MenuItem value="4">4+</MenuItem>
-        </TextField>
+        />
       </Box>
 
-      {/* Date Added (from and to) */}
-      <Box display="flex" gap={1} mb={2} className="date-picker-container">
-        <Box flex={1}>
-          <Typography gutterBottom>Date From</Typography>
-          <DatePicker
-            selected={dateAddedFrom}
-            onChange={(date) => setDateAddedFrom(date)}
-            dateFormat="yyyy-MM-dd"
-            placeholderText="Start date"
-            className="date-input"
-          />
-        </Box>
-        <Box flex={1}>
-          <Typography gutterBottom>Date To</Typography>
-          <DatePicker
-            selected={dateAddedTo}
-            onChange={(date) => setDateAddedTo(date)}
-            dateFormat="yyyy-MM-dd"
-            placeholderText="End date"
-            className="date-input"
-          />
-        </Box>
+      {/* Bedrooms Min / Max */}
+      <Box className="two-inputs">
+        <TextField
+          label="Min Bedrooms"
+          type="number"
+          value={bedroomsMin}
+          onChange={(e) => setBedroomsMin(e.target.value)}
+          fullWidth
+        />
+        <TextField
+          label="Max Bedrooms"
+          type="number"
+          value={bedroomsMax}
+          onChange={(e) => setBedroomsMax(e.target.value)}
+          fullWidth
+        />
+      </Box>
+
+      {/* Date Added */}
+      <Box className="two-inputs date-picker-container">
+        <DatePicker
+          selected={dateAddedFrom}
+          onChange={(date) => setDateAddedFrom(date)}
+          placeholderText="Date From"
+          dateFormat="yyyy-MM-dd"
+          className="date-input"
+        />
+        <DatePicker
+          selected={dateAddedTo}
+          onChange={(date) => setDateAddedTo(date)}
+          placeholderText="Date To"
+          dateFormat="yyyy-MM-dd"
+          className="date-input"
+        />
       </Box>
 
       {/* Postcode */}
       <TextField
         label="Postcode Area"
+        value={postcode}
+        onChange={(e) =>
+          setPostcode(e.target.value.toUpperCase().slice(0, 3))
+        }
+        placeholder="e.g. BR1"
         fullWidth
         margin="dense"
-        value={postcode}
-        onChange={(e) => setPostcode(e.target.value.toUpperCase().slice(0, 3))}
-        placeholder="e.g. BR1"
       />
 
+      {/* Search Button */}
       <Button
         type="submit"
         variant="contained"
-        fullWidth
+        color="primary"
         className="search-button"
+        fullWidth
       >
         Search
       </Button>

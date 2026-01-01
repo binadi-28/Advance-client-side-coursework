@@ -3,31 +3,59 @@ import SearchForm from "../components/SearchForm";
 import PropertyList from "../components/PropertyList";
 import propertiesData from "../data/properties.json";
 import FavouriteList from "../components/FavouriteList";
-import "./SearchPage.css"; // import external CSS
+import "./SearchPage.css";
 
 function SearchPage() {
-  const [results, setResults] = useState([]);
+  // IMPORTANT: start with all properties
+  const [results, setResults] = useState(propertiesData.properties);
 
   const handleSearch = (criteria) => {
     const filteredProperties = propertiesData.properties.filter((property) => {
+
+      // TYPE
       if (criteria.type && property.type !== criteria.type) return false;
 
+      // PRICE
       if (
-        property.price < criteria.price[0] ||
-        property.price > criteria.price[1]
+        criteria.priceMin &&
+        property.price < Number(criteria.priceMin)
       )
         return false;
 
       if (
-        criteria.bedrooms &&
-        property.bedrooms < Number(criteria.bedrooms)
+        criteria.priceMax &&
+        property.price > Number(criteria.priceMax)
       )
         return false;
 
-      if (criteria.dateAdded) {
-        if (new Date(property.added) < criteria.dateAdded) return false;
-      }
+      // BEDROOMS
+      if (
+        criteria.bedroomsMin &&
+        property.bedrooms < Number(criteria.bedroomsMin)
+      )
+        return false;
 
+      if (
+        criteria.bedroomsMax &&
+        property.bedrooms > Number(criteria.bedroomsMax)
+      )
+        return false;
+
+      // DATE FROM
+      if (
+        criteria.dateAddedFrom &&
+        new Date(property.added) < criteria.dateAddedFrom
+      )
+        return false;
+
+      // DATE TO
+      if (
+        criteria.dateAddedTo &&
+        new Date(property.added) > criteria.dateAddedTo
+      )
+        return false;
+
+      // POSTCODE
       if (
         criteria.postcode &&
         !property.postcode.startsWith(criteria.postcode)
