@@ -20,7 +20,7 @@ function Footer() {
       <Box className="footer-socials">
         <IconButton
           component="a"
-          href="https://github.com/yourusername"
+          href="https://github.com/binadi-28"
           target="_blank"
           rel="noopener"
         >
@@ -28,7 +28,7 @@ function Footer() {
         </IconButton>
         <IconButton
           component="a"
-          href="https://linkedin.com/in/yourusername"
+          href="https://linkedin.com/in/binadi-laknara"
           target="_blank"
           rel="noopener"
         >
@@ -36,7 +36,7 @@ function Footer() {
         </IconButton>
         <IconButton
           component="a"
-          href="mailto:your@email.com"
+          href="mailto:binadi.20240153@gmail.com"
         >
           <EmailIcon />
         </IconButton>
