@@ -1,13 +1,65 @@
+/* Header container (AppBar / Toolbar wrapper) */
 .header-toolbar {
-  display: flex;
-  justify-content: space-between;
+    min-height: 100px !important; /* force override */
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  /* HEIGHT */
+  min-height: 120px;
+  padding: 0 32px;
+
+  /* MULTI-COLOR GRADIENT */
+  background: linear-gradient(
+    135deg,
+    #0f2027,
+    #386676,
+    #457d8f,
+    #5ba1be
+  );
+
+  /* SHADOW */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
+/* Title / Logo */
 .header-title {
-  font-weight: bold;
-  font-size: 1.25rem; /* MUI h6 approx size */
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 1000;
+  font-size: 2.4rem;
+  letter-spacing: 0.8px;
+  color: #fcfcfc;
+  text-transform: uppercase;
+  line-height: 1.4;           /* makes title taller */
+  padding: 20px 0;  
 }
 
-.header-buttons button {
-  margin-left: 8px; /* spacing between buttons */
+/* Button container */
+.header-buttons {
+  display: flex;
+  align-items: center;
 }
+
+/* Buttons */
+.header-buttons button {
+  margin-left: 10px;
+  padding: 6px 16px;
+
+  font-weight: 500;
+  text-transform: capitalize;
+
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.header-buttons button:hover {
+  background: #ffcc70;
+  color: #2c5364;
+  transform: translateY(-1px);
+}
+
