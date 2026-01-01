@@ -8,24 +8,37 @@ function TabsSection({ description, floorPlan, mapUrl }) {
       <TabList>
         <Tab>Description</Tab>
         <Tab>Floor Plan</Tab>
-        <Tab>Map</Tab>
+        <Tab>Location</Tab>
       </TabList>
 
       <TabPanel>
-        <p>{description}</p>
+        <p className="tab-description">{description}</p>
       </TabPanel>
 
       <TabPanel>
-        <img src={floorPlan} alt="Floor Plan" className="floor-plan" />
+        {floorPlan ? (
+          <img
+            src={floorPlan}
+            alt="Floor Plan"
+            className="floor-plan-img"
+          />
+        ) : (
+          <p>No floor plan available.</p>
+        )}
       </TabPanel>
 
       <TabPanel>
-        <iframe
-          src={mapUrl}
-          title="Google Map"
-          className="map-iframe"
-          loading="lazy"
-        ></iframe>
+        {mapUrl ? (
+          <iframe
+            src={mapUrl}
+            title="Google Map"
+            className="map-iframe"
+            loading="lazy"
+            allowFullScreen
+          ></iframe>
+        ) : (
+          <p>Map not available.</p>
+        )}
       </TabPanel>
     </Tabs>
   );
