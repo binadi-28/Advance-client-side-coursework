@@ -1,14 +1,8 @@
-import { useState } from "react";
 import { AppBar, Toolbar, Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import propertiesData from "../data/properties.json";
 import "./Header.css";
 
 function Header() {
-  const [firstPropertyId] = useState(
-    propertiesData.properties.length > 0 ? propertiesData.properties[0].id : ""
-  );
-
   return (
     <AppBar position="static">
       <Toolbar className="header-toolbar">
@@ -20,16 +14,6 @@ function Header() {
           <Button color="inherit" component={Link} to="/">
             Home
           </Button>
-
-          {firstPropertyId && (
-            <Button
-              color="inherit"
-              component={Link}
-              to={`/property/${firstPropertyId}`}
-            >
-              Sample Property
-            </Button>
-          )}
         </div>
       </Toolbar>
     </AppBar>
