@@ -6,6 +6,12 @@ import "./PropertyCard.css";
 function PropertyCard({ property }) {
   const { addFavourite } = useFavourites();
 
+  // short description (first 90 characters)
+  const shortDescription =
+    property.description.length > 90
+      ? property.description.slice(0, 90) + "..."
+      : property.description;
+
   return (
     <Card
       className="property-card"
@@ -14,6 +20,7 @@ function PropertyCard({ property }) {
         e.dataTransfer.setData("property", JSON.stringify(property))
       }
     >
+      {/* IMAGE */}
       <CardMedia
         component="img"
         height="180"
@@ -22,19 +29,26 @@ function PropertyCard({ property }) {
       />
 
       <CardContent className="property-card-content">
-        <Typography variant="h6" className="property-card-title">
+        {/* TYPE + BEDROOMS */}
+        <Typography variant="subtitle2" className="property-card-type">
+          {property.type} · {property.bedrooms} Bedrooms
+        </Typography>
+
+        {/* PRICE */}
+        <Typography variant="h6" className="property-card-price">
           £{property.price.toLocaleString()}
         </Typography>
 
-        <Typography variant="body2" className="property-card-subtitle">
-          {property.type} · {property.bedrooms} bedrooms
+        {/* SHORT DESCRIPTION */}
+        <Typography variant="body2" className="property-card-description">
+          {shortDescription}
         </Typography>
 
+        {/* BUTTONS */}
         <div className="property-card-buttons">
           <Button
             variant="contained"
             size="small"
-            className="property-card-button"
             onClick={() => addFavourite(property)}
           >
             ❤️ Favourite
@@ -45,7 +59,6 @@ function PropertyCard({ property }) {
             to={`/property/${property.id}`}
             variant="outlined"
             size="small"
-            className="property-card-button"
           >
             View
           </Button>
