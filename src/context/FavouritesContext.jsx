@@ -1,3 +1,5 @@
+/* eslint-disable react-refresh/only-export-components */
+
 import { createContext, useContext, useState } from "react";
 
 const FavouritesContext = createContext();
@@ -7,7 +9,9 @@ export function FavouritesProvider({ children }) {
 
   const addFavourite = (property) => {
     setFavourites((prev) =>
-      prev.find((p) => p.id === property.id) ? prev : [...prev, property]
+      prev.find((p) => p.id === property.id)
+        ? prev
+        : [...prev, property]
     );
   };
 
@@ -15,7 +19,9 @@ export function FavouritesProvider({ children }) {
     setFavourites((prev) => prev.filter((p) => p.id !== id));
   };
 
-  const clearFavourites = () => setFavourites([]);
+  const clearFavourites = () => {
+    setFavourites([]);
+  };
 
   return (
     <FavouritesContext.Provider
@@ -27,5 +33,11 @@ export function FavouritesProvider({ children }) {
 }
 
 export function useFavourites() {
-  return useContext(FavouritesContext);
+  const context = useContext(FavouritesContext);
+  if (!context) {
+    throw new Error(
+      "useFavourites must be used within a FavouritesProvider"
+    );
+  }
+  return context;
 }
