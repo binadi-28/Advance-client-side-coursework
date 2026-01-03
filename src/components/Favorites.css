@@ -1,0 +1,100 @@
+/* Favorites.css */
+
+/* Container for all favorites */
+.favorites-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #f8f9fa; /* light gray background */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+.favorites-container h6 {
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Empty state message */
+.favorites-container .MuiTypography-body2 {
+  text-align: center;
+  color: #777;
+  margin-top: 30px;
+  font-style: italic;
+}
+
+/* Individual favorite card */
+.favorite-card {
+  display: flex;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.favorite-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Image styling */
+.favorite-card img {
+  width: 150px;
+  object-fit: cover;
+  border-right: 1px solid #ddd;
+}
+
+/* Card content */
+.favorite-card .MuiCardContent-root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 15px;
+}
+
+/* Property type and bedrooms */
+.favorite-card .MuiTypography-subtitle2 {
+  font-weight: 500;
+  color: #555;
+}
+
+/* Price styling */
+.favorite-card .MuiTypography-body1 {
+  font-weight: 600;
+  color: #1976d2; /* MUI primary blue */
+  margin: 5px 0;
+}
+
+/* Remove button styling */
+.favorite-card .MuiButton-root {
+  align-self: flex-start;
+  text-transform: none;
+  font-weight: 500;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 600px) {
+  .favorite-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .favorite-card img {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .favorite-card .MuiCardContent-root {
+    padding: 10px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .favorite-card .MuiButton-root {
+    margin-top: 10px;
+  }
+}
