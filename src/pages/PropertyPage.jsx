@@ -7,13 +7,10 @@ import "./PropertyPage.css";
 function PropertyPage() {
   const { id } = useParams();
 
-  const property = propertiesData.properties.find(
-    (p) => p.id === id
-  );
+  // Find the property
+  const property = propertiesData.properties.find((p) => p.id === id);
 
-  const [mainImage, setMainImage] = useState(
-    property?.images?.[0] || ""
-  );
+  const [mainImage, setMainImage] = useState(property?.images?.[0] || "");
 
   if (!property) {
     return <h2>Property not found</h2>;
@@ -21,9 +18,8 @@ function PropertyPage() {
 
   return (
     <div className="property-page">
-      {/* TOP SECTION */}
       <div className="property-top-section">
-        {/* LEFT: IMAGES */}
+        {/* Left: Images */}
         <div className="property-left">
           <div className="property-images">
             <div className="main-image-box">
@@ -33,7 +29,6 @@ function PropertyPage() {
                 className="main-image"
               />
             </div>
-
             <div className="thumbnail-images">
               {property.images.map((img, index) => (
                 <img
@@ -44,13 +39,14 @@ function PropertyPage() {
                     mainImage === img ? "active" : ""
                   }`}
                   onClick={() => setMainImage(img)}
+                  data-testid={`thumbnail-${index}`}
                 />
               ))}
             </div>
           </div>
         </div>
 
-        {/* RIGHT: DETAILS + TABS */}
+        {/* Right: Details */}
         <div className="property-right">
           <h2 className="property-type">{property.type}</h2>
           <h3 className="property-price">
@@ -63,16 +59,13 @@ function PropertyPage() {
             <span>📅 {property.added}</span>
           </div>
 
-          {/* TABS SECTION (CRITICAL FOR MARKS) */}
           <TabsSection
             description={property.description}
             floorPlan={property.floorPlan}
             mapUrl={property.mapUrl}
           />
 
-          <button className="contact-button">
-            Contact Agent
-          </button>
+          <button className="contact-button">Contact Agent</button>
         </div>
       </div>
     </div>

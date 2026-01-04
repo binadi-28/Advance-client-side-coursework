@@ -1,65 +1,88 @@
-/* eslint-env jest */
-import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { MemoryRouter, Routes, Route } from "react-router-dom";
-import { test, expect } from "@jest/globals";
+import { render, screen, fireEvent } from "@testing-library/react";
+import { MemoryRouter, Route, Routes } from "react-router-dom";
 import PropertyPage from "../pages/PropertyPage";
+import { describe, test, vi, expect } from "vitest";
 
-test("property page renders correctly", () => {
+// Mock the JSON data correctly
+vi.mock("../data/properties.json", () => ({
+  default: {
+    properties: [
+      {
+        id: "prop1",
+        type: "House",
+        price: 750000,
+        bedrooms: 2,
+        postcode: "BR5",
+        added: "2022-10-12",
+        images: [
+          "/images/house1/house1.png",
+          "/images/house1/h1indoor1.png",
+          "/images/house1/h1indoor2.png",
+        ],
+        description:
+          "A spacious three-bedroom family house in Petts Wood featuring bright living areas, modern kitchen, private garden, and high-quality finishes. Perfect for families.",
+        floorPlan: "/images/house1/floorplan1.png",
+        mapUrl: "https://www.google.com/maps?q=BR5&output=embed",
+      },
+    ],
+  },
+}));
+
+const renderWithRouter = (id) => {
   render(
-    <MemoryRouter initialEntries={["/property/prop1"]}>
+    <MemoryRouter initialEntries={[`/property/${id}`]}>
       <Routes>
         <Route path="/property/:id" element={<PropertyPage />} />
       </Routes>
     </MemoryRouter>
   );
+};
 
-  expect(screen.getByText(/£/)).toBeInTheDocument();
-});
+describe("PropertyPage", () => {
+  test("renders property details correctly", () => {
+    renderWithRouter("prop1");
 
-test("renders property details and contact button", () => {
-  render(
-    <MemoryRouter initialEntries={["/property/prop1"]}>
-      <Routes>
-        <Route path="/property/:id" element={<PropertyPage />} />
-      </Routes>
-    </MemoryRouter>
-  );
+    // Use role to get the heading (avoids duplicate text in description)
+    expect(
+      screen.getByRole("heading", { level: 2, name: "House" })
+    ).toBeInTheDocument();
 
-  expect(screen.getByText(/Bedrooms/)).toBeInTheDocument();
-  expect(screen.getByRole("button", { name: /Contact Agent/i })).toBeInTheDocument();
-  expect(screen.getByRole("heading", { level: 3 })).toHaveTextContent(/£/);
-});
+    expect(
+      screen.getByRole("heading", { level: 3, name: "£750,000" })
+    ).toBeInTheDocument();
 
-test("clicking a thumbnail updates the main image", async () => {
-  render(
-    <MemoryRouter initialEntries={["/property/prop1"]}>
-      <Routes>
-        <Route path="/property/:id" element={<PropertyPage />} />
-      </Routes>
-    </MemoryRouter>
-  );
+    expect(screen.getByText("🛏 2 Bedrooms")).toBeInTheDocument();
+    expect(screen.getByText("📍 BR5")).toBeInTheDocument();
+    expect(screen.getByText("📅 2022-10-12")).toBeInTheDocument();
 
-  const thumbnails = screen.getAllByAltText(/Thumbnail/i);
-  expect(thumbnails.length).toBeGreaterThan(0);
+    // Description
+    expect(
+      screen.getByText(
+        /A spacious three-bedroom family house in Petts Wood featuring bright living areas/i
+      )
+    ).toBeInTheDocument();
 
-  const mainImage = screen.getByAltText(/Main Property/i);
-  const secondThumb = thumbnails[0];
-  const user = userEvent.setup();
-  await user.click(secondThumb);
+    expect(screen.getByRole("button", { name: /Contact Agent/i })).toBeInTheDocument();
+  });
 
-  expect(mainImage).toHaveAttribute("src", secondThumb.getAttribute("src"));
-});
+  test("thumbnail click updates main image", () => {
+    renderWithRouter("prop1");
 
-test("shows not found message for unknown property id", () => {
-  render(
-    <MemoryRouter initialEntries={["/property/does-not-exist"]}>
-      <Routes>
-        <Route path="/property/:id" element={<PropertyPage />} />
-      </Routes>
-    </MemoryRouter>
-  );
+    const mainImage = screen.getByAltText("Main Property");
+    const thumbnail = screen.getByTestId("thumbnail-1");
 
-  expect(screen.getByText(/Property not found/)).toBeInTheDocument();
+    expect(mainImage).toHaveAttribute("src", "/images/house1/house1.png");
+
+    fireEvent.click(thumbnail);
+
+    expect(mainImage).toHaveAttribute("src", "/images/house1/h1indoor1.png");
+  });
+
+  test("shows 'Property not found' for invalid ID", () => {
+    renderWithRouter("invalid-id");
+
+    expect(screen.getByRole("heading", { level: 2 })).toHaveTextContent(
+      "Property not found"
+    );
+  });
 });
