@@ -1,7 +1,6 @@
 /* ===============================
    PROPERTY PAGE LAYOUT
 ================================ */
-
 .property-page {
   max-width: 1200px;
   margin: auto;
@@ -12,7 +11,6 @@
 /* ===============================
    TOP SECTION
 ================================ */
-
 .property-top-section {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
@@ -23,7 +21,6 @@
 /* ===============================
    LEFT – IMAGES
 ================================ */
-/* LEFT – IMAGES */
 .property-images {
   display: flex;
   flex-direction: column; /* stack vertically */
@@ -45,7 +42,7 @@
 /* THUMBNAILS */
 .thumbnail-images {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* thumbnails in a row below main image */
+  grid-template-columns: repeat(5, 1fr);
   gap: 10px;
 }
 
@@ -69,13 +66,9 @@
   opacity: 1;
 }
 
-
-
-
 /* ===============================
    RIGHT – DETAILS
 ================================ */
-
 .property-right {
   background: #ffffff;
   padding: 28px;
@@ -134,17 +127,93 @@
    RESPONSIVE
 ================================ */
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .property-images {
-    flex-direction: column; /* keep stacking on small screens */
+/* Tablets */
+@media (max-width: 1024px) {
+  .property-top-section {
+    grid-template-columns: 1fr; /* stack left + right */
+    gap: 30px;
   }
 
-  .thumbnail-images {
-    grid-template-columns: repeat(5, 1fr); /* adjust thumbnails row on mobile */
+  .main-image-box {
+    height: 350px;
   }
 
   .thumbnail-img {
-    height: 70px;
+    height: 65px;
+  }
+
+  .property-type {
+    font-size: 1.7rem;
+  }
+
+  .property-price {
+    font-size: 1.4rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  .main-image-box {
+    height: 280px;
+  }
+
+  .thumbnail-images {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .thumbnail-img {
+    height: 55px;
+  }
+
+  .property-type {
+    font-size: 1.5rem;
+  }
+
+  .property-price {
+    font-size: 1.2rem;
+  }
+
+  .property-meta span {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+  }
+
+  .property-right {
+    padding: 20px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .main-image-box {
+    height: 220px;
+  }
+
+  .thumbnail-images {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+
+  .thumbnail-img {
+    height: 45px;
+  }
+
+  .property-type {
+    font-size: 1.3rem;
+  }
+
+  .property-price {
+    font-size: 1.1rem;
+  }
+
+  .property-meta span {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+
+  .contact-button {
+    font-size: 1rem;
+    padding: 12px;
   }
 }

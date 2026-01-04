@@ -1,50 +1,63 @@
-/* Favorites.css */
+/* Favorites.css - Modern Attractive Version */
 
 /* Container for all favorites */
 .favorites-container {
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 15px;
-  background-color: #f8f9fa; /* light gray background */
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 950px;
+  margin: 30px auto;
+  padding: 20px;
+  background: linear-gradient(145deg, #fdfdfd, #f1f5f9); /* subtle gradient */
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease;
 }
 
 /* Heading */
 .favorites-container h6 {
-  margin-bottom: 15px;
-  font-weight: 600;
-  color: #333;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #1e293b; /* darker gray-blue for clarity */
+  text-align: center;
+  letter-spacing: 0.5px;
 }
 
 /* Empty state message */
 .favorites-container .MuiTypography-body2 {
   text-align: center;
-  color: #777;
-  margin-top: 30px;
+  color: #9ca3af;
+  margin-top: 40px;
   font-style: italic;
+  font-size: 1rem;
 }
 
 /* Individual favorite card */
 .favorite-card {
   display: flex;
-  margin-bottom: 15px;
-  border-radius: 10px;
+  background-color: #ffffff;
+  margin-bottom: 18px;
+  border-radius: 14px;
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  border: 1px solid #e2e8f0;
 }
 
 .favorite-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
 }
 
 /* Image styling */
 .favorite-card img {
-  width: 150px;
+  width: 180px;
+  height: 140px;
   object-fit: cover;
-  border-right: 1px solid #ddd;
+  border-right: 1px solid #e2e8f0;
+  transition: transform 0.3s ease;
+}
+
+.favorite-card img:hover {
+  transform: scale(1.05);
 }
 
 /* Card content */
@@ -52,31 +65,44 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 10px 15px;
+  padding: 15px 20px;
+  gap: 5px;
 }
 
 /* Property type and bedrooms */
 .favorite-card .MuiTypography-subtitle2 {
   font-weight: 500;
-  color: #555;
+  color: #475569;
+  font-size: 0.95rem;
 }
 
 /* Price styling */
 .favorite-card .MuiTypography-body1 {
-  font-weight: 600;
-  color: #1976d2; /* MUI primary blue */
-  margin: 5px 0;
+  font-weight: 700;
+  color: #2563eb; /* brighter blue */
+  margin: 6px 0;
+  font-size: 1.1rem;
 }
 
 /* Remove button styling */
 .favorite-card .MuiButton-root {
   align-self: flex-start;
   text-transform: none;
-  font-weight: 500;
+  font-weight: 600;
+  color: #ef4444; /* red for remove button */
+  background-color: #fee2e2;
+  border-radius: 8px;
+  padding: 6px 12px;
+  transition: all 0.2s ease;
+}
+
+.favorite-card .MuiButton-root:hover {
+  background-color: #f87171;
+  color: #ffffff;
 }
 
 /* Responsive layout for smaller screens */
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .favorite-card {
     flex-direction: column;
     align-items: center;
@@ -84,17 +110,18 @@
 
   .favorite-card img {
     width: 100%;
+    height: 200px;
     border-right: none;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #e2e8f0;
   }
 
   .favorite-card .MuiCardContent-root {
-    padding: 10px;
+    padding: 15px;
     align-items: center;
     text-align: center;
   }
 
   .favorite-card .MuiButton-root {
-    margin-top: 10px;
+    margin-top: 12px;
   }
 }
