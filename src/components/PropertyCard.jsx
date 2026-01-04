@@ -8,7 +8,7 @@ function PropertyCard({ property, addFavourite }) {
       ? property.description.slice(0, 90) + "..."
       : property.description;
 
-  // Trigger drag start
+  // Drag start: store the property in dataTransfer
   const handleDragStart = (e) => {
     e.dataTransfer.setData("property", JSON.stringify(property));
   };
@@ -19,6 +19,7 @@ function PropertyCard({ property, addFavourite }) {
       draggable
       onDragStart={handleDragStart}
     >
+      {/* Property Image */}
       <CardMedia
         component="img"
         height="180"
@@ -26,9 +27,10 @@ function PropertyCard({ property, addFavourite }) {
         alt={property.type}
       />
 
+      {/* Card Content */}
       <CardContent className="property-card-content">
         <Typography variant="subtitle2" className="property-card-type">
-          {property.type} · {property.bedrooms} Bedrooms
+          {property.type} · {property.bedrooms} Beds
         </Typography>
 
         <Typography variant="h6" className="property-card-price">
@@ -39,11 +41,12 @@ function PropertyCard({ property, addFavourite }) {
           {shortDescription}
         </Typography>
 
+        {/* Buttons */}
         <div className="property-card-buttons">
           <Button
             variant="contained"
             size="small"
-            className="favourite-btn"
+            className="property-card-button favourite-btn"
             onClick={() => addFavourite(property)}
           >
             ❤️ Favourite
@@ -54,7 +57,7 @@ function PropertyCard({ property, addFavourite }) {
             to={`/property/${property.id}`}
             variant="outlined"
             size="small"
-            className="view-btn"
+            className="property-card-button view-btn"
           >
             View
           </Button>

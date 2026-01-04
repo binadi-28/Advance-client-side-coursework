@@ -2,13 +2,26 @@ import { Card, CardContent, CardMedia, Typography, Button } from "@mui/material"
 import "./Favorites.css";
 
 function Favorites({ favourites, onRemove, onClear, onDrop }) {
-  // Allow drop
-  const handleDragOver = (e) => e.preventDefault();
+  // Allow drop into favourites
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "copy";
+  };
 
+  // Drop property into favourites
   const handleDrop = (e) => {
     e.preventDefault();
-    const property = JSON.parse(e.dataTransfer.getData("property"));
-    onDrop(property); // add to favourites
+    const data = e.dataTransfer.getData("property");
+    if (data) {
+      const property = JSON.parse(data);
+      onDrop(property);
+    }
+  };
+
+  // Drag start from favourites (to remove on drag-out)
+  const handleDragStart = (e, id) => {
+    e.dataTransfer.setData("remove-id", id);
+    e.dataTransfer.effectAllowed = "move";
   };
 
   return (
@@ -40,7 +53,12 @@ function Favorites({ favourites, onRemove, onClear, onDrop }) {
       )}
 
       {favourites.map((property) => (
-        <Card key={property.id} className="favorite-card">
+        <Card
+          key={property.id}
+          className="favorite-card"
+          draggable
+          onDragStart={(e) => handleDragStart(e, property.id)}
+        >
           <CardMedia
             component="img"
             height="120"

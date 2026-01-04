@@ -9,38 +9,49 @@ function SearchPage() {
   const [results, setResults] = useState(propertiesData.properties);
   const [favourites, setFavourites] = useState([]);
 
+  // Filter properties
   const handleSearch = (criteria) => {
     const filteredProperties = propertiesData.properties.filter((property) => {
       if (criteria.type && property.type !== criteria.type) return false;
-      if (criteria.priceMin && property.price < Number(criteria.priceMin))
-        return false;
-      if (criteria.priceMax && property.price > Number(criteria.priceMax))
-        return false;
-      if (criteria.bedroomsMin && property.bedrooms < Number(criteria.bedroomsMin))
-        return false;
-      if (criteria.bedroomsMax && property.bedrooms > Number(criteria.bedroomsMax))
-        return false;
-      if (criteria.postcode && !property.postcode.startsWith(criteria.postcode))
-        return false;
+      if (criteria.priceMin && property.price < Number(criteria.priceMin)) return false;
+      if (criteria.priceMax && property.price > Number(criteria.priceMax)) return false;
+      if (criteria.bedroomsMin && property.bedrooms < Number(criteria.bedroomsMin)) return false;
+      if (criteria.bedroomsMax && property.bedrooms > Number(criteria.bedroomsMax)) return false;
+      if (criteria.postcode && !property.postcode.startsWith(criteria.postcode)) return false;
       return true;
     });
     setResults(filteredProperties);
   };
 
+  // Add favourite (click or drag-in)
   const addFavourite = (property) => {
     if (!favourites.find((p) => p.id === property.id)) {
       setFavourites([...favourites, property]);
     }
   };
 
+  // Remove favourite by ID
   const removeFavourite = (id) => {
     setFavourites(favourites.filter((p) => p.id !== id));
   };
 
+  // Clear all favourites
   const clearFavourites = () => setFavourites([]);
 
+  // Handle drag-out removal
+  const handleDragOut = (e) => {
+    const removeId = e.dataTransfer.getData("remove-id");
+    if (removeId) {
+      removeFavourite(removeId);
+    }
+  };
+
   return (
-    <div className="search-page">
+    <div
+      className="search-page"
+      onDragOver={(e) => e.preventDefault()}
+      onDrop={handleDragOut} // drag-out handler
+    >
       <div className="search-page-main">
         <SearchForm onSearch={handleSearch} />
         <PropertyList properties={results} onFavourite={addFavourite} />

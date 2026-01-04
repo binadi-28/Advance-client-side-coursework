@@ -18,7 +18,7 @@
       ],
       "description": "A spacious three-bedroom family house in Petts Wood featuring bright living areas, modern kitchen, private garden, and high-quality finishes. Perfect for families, offering excellent schools, local shops, and convenient transport links. This property combines comfort, style, and practicality, making it an ideal home for long-term living in a friendly neighborhood.",
       "floorPlan": "/images/house1/floorplan1.png",
-      "mapUrl": "https://www.google.com/maps?q=BR5&output=embed"
+      "mapUrl": "https://www.google.com/maps?q=Petts+Wood,+BR5&output=embed"
     },
     {
       "id": "prop2",
@@ -38,7 +38,7 @@
       ],
       "description": "A stylish two-bedroom apartment near Bromley with open-plan living space, contemporary design, and high-quality finishes. Featuring spacious bedrooms, modern kitchen, and plenty of natural light. Close to shops, schools, and public transport. Perfect for professionals or small families seeking a vibrant, convenient lifestyle in a safe, well-connected area.",
       "floorPlan": "/images/house2/floorplan2.png",
-      "mapUrl": "https://www.google.com/maps?q=BR4&output=embed"
+      "mapUrl": "https://www.google.com/maps?q=Bromley,+BR4&output=embed"
     },
     {
       "id": "prop3",
@@ -58,7 +58,7 @@
       ],
       "description": "A charming one-bedroom bungalow in Beckenham offering single-level living with spacious interiors, modern kitchen, and a private garden. Ideal for couples or retirees seeking comfort and tranquility. Located in a peaceful neighborhood with easy access to amenities, parks, and transport, providing a perfect combination of privacy, convenience, and modern living.",
       "floorPlan": "/images/house3/floorplan3.png",
-      "mapUrl": "https://www.google.com/maps?q=BR3&output=embed"
+      "mapUrl": "https://www.google.com/maps?q=Beckenham,+BR3&output=embed"
     },
     {
       "id": "prop4",
@@ -78,7 +78,7 @@
       ],
       "description": "A beautiful four-bedroom house in Orpington featuring spacious living areas, modern kitchen, garage, and landscaped garden. Perfect for families looking for comfort and functionality. Close to excellent schools, shopping centers, and transport links. This property offers a blend of style, convenience, and quality, providing an ideal home for everyday living and entertaining guests.",
       "floorPlan": "/images/house4/floorplan4.png",
-      "mapUrl": "https://www.google.com/maps?q=BR2&output=embed"
+      "mapUrl":  "https://www.google.com/maps?q=Orpington,+BR2&output=embed"
     },
     {
       "id": "prop5",
@@ -98,7 +98,7 @@
       ],
       "description": "A cozy one-bedroom apartment in Bromley town center, offering modern interiors, bright living space, and efficient layout. Perfect for professionals or first-time buyers. Conveniently located near shops, restaurants, and public transport. This property combines comfort and practicality with a central location, making it an ideal choice for easy urban living.",
       "floorPlan": "/images/house5/floorplan5.png",
-      "mapUrl": "https://www.google.com/maps?q=BR1&output=embed"
+      "mapUrl":  "https://www.google.com/maps?q=Bromley+Town+Centre,+BR1&output=embed"
     },
     {
       "id": "prop6",
@@ -118,7 +118,7 @@
       ],
       "description": "A luxurious three-bedroom house in Keston featuring elegant interiors, a private swimming pool, modern kitchen, spacious bedrooms, and outdoor living areas. Perfect for families seeking comfort and style. Located in a prestigious, peaceful neighborhood with excellent transport links and local amenities. This property offers exceptional quality, privacy, and long-term value.",
       "floorPlan": "/images/house6/floorplan6.png",
-      "mapUrl": "https://www.google.com/maps?q=BR6&output=embed"
+      "mapUrl":  "https://www.google.com/maps?q=Keston,+BR6&output=embed"
     },
     {
       "id": "prop7",
@@ -138,7 +138,7 @@
       ],
       "description": "A modern two-bedroom bungalow in Swanley featuring stylish interiors, spacious living areas, and a private garden. Ideal for families or retirees seeking comfort and convenience. Close to local shops, schools, and transport links. This property offers a perfect blend of practicality, style, and peaceful residential living for long-term enjoyment.",
       "floorPlan": "/images/house7/floorplan.png",
-      "mapUrl": "https://www.google.com/maps?q=BR7&output=embed"
+      "mapUrl":  "https://www.google.com/maps?q=Swanley,+BR7&output=embed"
     }
   ]
 }
