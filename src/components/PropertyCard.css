@@ -1,25 +1,8 @@
-/* ===============================
-   PROPERTY GRID (IMPORTANT)
-================================ */
-
-.property-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 28px;
-  padding: 32px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* ===============================
-   PROPERTY CARD
-================================ */
-
 .property-card {
-  width: 100%;
-  max-width: 340px;
+  width: 100%;       /* full width of column */
+  max-width: 100%;   /* remove fixed max-width */
   background: #ffffff;
-  border-radius: 16px !important;
+  border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
@@ -30,10 +13,6 @@
   transform: translateY(-6px);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
 }
-
-/* ===============================
-   IMAGE
-================================ */
 
 .property-card img {
   width: 100%;
@@ -46,12 +25,8 @@
   transform: scale(1.06);
 }
 
-/* ===============================
-   CARD CONTENT
-================================ */
-
 .property-card-content {
-  padding: 16px !important;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -59,7 +34,7 @@
 
 .property-card-title {
   font-size: 1.25rem;
-  font-weight: 700 !important;
+  font-weight: 700;
   color: #1a237e;
 }
 
@@ -67,10 +42,6 @@
   font-size: 0.95rem;
   color: #555;
 }
-
-/* ===============================
-   BUTTONS
-================================ */
 
 .property-card-buttons {
   display: flex;
@@ -80,71 +51,48 @@
 
 .property-card-button {
   flex: 1;
-  padding: 8px 12px !important;
-  border-radius: 10px !important;
-  font-weight: 600 !important;
-  text-transform: none !important;
-  transition: all 0.3s ease !important;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-transform: none;
+  transition: all 0.3s ease;
 }
 
 /* Favourite button */
 .property-card-button.MuiButton-contained {
-  background-color: #f44336 !important;
-  color: #ffffff !important;
+  background-color: #f44336;
+  color: #ffffff;
 }
 
 .property-card-button.MuiButton-contained:hover {
-  background-color: #d32f2f !important;
+  background-color: #d32f2f;
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
 /* View button */
 .property-card-button.MuiButton-outlined {
-  border: 2px solid #1976d2 !important;
-  color: #1976d2 !important;
+  border: 2px solid #1976d2;
+  color: #1976d2;
 }
 
 .property-card-button.MuiButton-outlined:hover {
-  background-color: #1976d2 !important;
-  color: #ffffff !important;
+  background-color: #1976d2;
+  color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
-/* ===============================
-   RESPONSIVE BREAKPOINTS
-================================ */
-
-/* Tablets */
-@media (max-width: 1024px) {
-  .property-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Mobile */
+/* Responsive */
 @media (max-width: 600px) {
-  .property-grid {
-    grid-template-columns: 1fr; /* ONE CARD PER ROW */
-    padding: 16px;
-  }
-
-  .property-card {
-    max-width: 100%;
-    width: 100%;
-  }
-
   .property-card img {
     height: 190px;
   }
-
   .property-card-title {
     font-size: 1.15rem;
   }
 }
 
-/* Small mobile */
 @media (max-width: 480px) {
   .property-card img {
     height: 170px;
